@@ -78,10 +78,10 @@ requirements:
     - {{ mpi }}  # [mpi != 'nompi']
     - zlib
   run:
-    - hdf5
-    - hdf5 * {{ mpi_prefix }}_*
-    - libnetcdf
-    - libnetcdf * {{ mpi_prefix }}_*
+    - hdf5  # [mpi == 'nompi']
+    - hdf5 * {{ mpi_prefix }}_*  # [mpi != 'nompi']
+    - libnetcdf  # [mpi == 'nompi']
+    - libnetcdf * {{ mpi_prefix }}_*  # [mpi != 'nompi']
     - {{ mpi }}  # [mpi != 'nompi']
     - openssh  # [mpi == 'openmpi']
 
